@@ -4,6 +4,9 @@
   --mainGrey: #ece8dc;
   --mainWhite: #fff;
   --mainDark: #222;
+  --mainGreen: rgb(140, 197, 61);
+  /* --mainDarkGreen: rgb(0, 69, 16); */
+  --mainDarkGreen: rgb(31, 95, 52);
 }
 
 body {
@@ -26,13 +29,22 @@ h6 {
   color: var(--mainYellow);
 }
 
+.text-dark-green {
+  color: var(--mainDarkGreen) !important;
+}
+
+.logo {
+  max-height: 50px;
+}
+
 .cart-icon {
   cursor: pointer;
-  color: var(--mainYellow);
+  color: var(--mainGreen);
   font-size: 2rem;
 }
 
-.default-background {
+.default-background,
+.about-background {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -42,12 +54,20 @@ h6 {
   background-size: cover;
 }
 
+.about-background {
+  min-height: 60vh;
+}
+
 .btn-yellow {
-    color: var(--mainYellow);
-    border-color: var(--mainYellow);
+  color: var(--mainYellow);
+  border-color: var(--mainYellow);
 }
 
 .btn-yellow:hover {
-    background: var(--mainYellow);
-    color: var(--mainBrown);
+  background: var(--mainYellow);
+  color: var(--mainBrown);
+}
+
+.footer {
+  background: var(--mainBrown);
 }

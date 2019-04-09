@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import logo from "../../images/logo.svg"
+import logo from "../../images/ESlogo.png"
 import { FaCartArrowDown } from "react-icons/fa"
 
 export default class Navbar extends Component {
@@ -37,7 +37,7 @@ export default class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm bg-light navbar-light">
         <Link to="/" className="navbar-brand">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className="logo ml-1" />
         </Link>
         <button
           className="navbar-toggler"
@@ -51,16 +51,20 @@ export default class Navbar extends Component {
             {this.state.links.map(link => {
               return (
                 <li key={link.id} className="nav-item">
-                  <Link to={link.path} className="nav-link text-capitalize">
+                  <Link
+                    to={link.path}
+                    activeStyle={{ textDecoration: "underline" }}
+                    className="nav-link text-capitalize text-dark-green"
+                  >
                     {link.text}
                   </Link>
                 </li>
               )
             })}
-            <li className="nav-item ml-sm-5">
-              <FaCartArrowDown className="cart-icon" />
-            </li>
+            {/* <li className="nav-item ml-sm-5">
+            </li> */}
           </ul>
+          <FaCartArrowDown className="cart-icon mr-1" />
         </div>
       </nav>
     )
