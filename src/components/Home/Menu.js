@@ -8,7 +8,41 @@ export default class Menu extends Component {
     this.state = {
       items: props.items.edges,
       coffeeItems: props.items.edges,
+      categories: this.preMountgetCategories(props.items.edges),
     }
+  }
+
+  preMountgetCategories = items => {
+    let tempItems = items.map(item => {
+      return item.node.category
+    })
+    let tempCategories = new Set(tempItems)
+    let categories = Array.from(tempCategories)
+    categories = ["all", ...categories]
+    return categories
+  }
+
+  handleItems = (category) => {
+    let tempItems = this.state.items;
+    if (category === 'all') {
+        this.setState(() => {
+            return {
+                coffeeItems: tempItems
+            }
+        })
+    }   else {
+        let items = tempItems.filter(({node}) => {
+            return node.category === category;
+        });
+        this.setState(() => {
+            return {
+                coffeeItems: items
+            }
+        })
+    }
+
+
+
   }
 
   render() {
@@ -18,6 +52,24 @@ export default class Menu extends Component {
           <div className="container">
             <Title title="best of our menu" />
             {/* categories */}
+            <div className="row mb-5">
+              <div className="col-10 mx-auto text-center">
+                {this.state.categories.map((category, index) => {
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      className="btn btn-yellow text-capitalize m-3"
+                      onClick={() => {
+                        this.handleItems(category)
+                      }}
+                    >
+                      {category}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
             {/* items */}
             <div className="row">
               {this.state.coffeeItems.map(({ node }) => {
