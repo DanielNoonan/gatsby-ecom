@@ -38,12 +38,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Electric Superhighway`,
+        short_name: `Electric Superhighway`,
         start_url: `/`,
         background_color: `#ece8dc`,
         theme_color: `#8cc53d`,
-        display: `minimal-ui`,
+        display: `fullscreen`,
         icon: `src/images/scooter.png`, // This path is relative to the root of the site.
       },
     },
